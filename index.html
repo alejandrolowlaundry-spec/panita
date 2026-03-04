@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo.png">
   <title>Panita - Tu asistente inteligente por WhatsApp</title>
   <meta name="description" content="Panita es tu asistente inteligente por WhatsApp para negocios y emprendedores en Venezuela. Atiende clientes, responde preguntas y vende más, todo desde tu celular.">
   <style>
@@ -36,7 +37,7 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #e5e7eb;
       z-index: 100;
-      padding: 14px 0;
+      padding: 10px 0;
     }
 
     .nav-inner {
@@ -49,14 +50,15 @@
     }
 
     .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--blue);
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: -0.5px;
     }
 
-    .logo span { color: var(--green); }
+    .logo img {
+      height: 120px;
+      width: auto;
+    }
 
     .nav-cta {
       background: var(--green);
@@ -73,7 +75,7 @@
 
     /* ===== HERO ===== */
     .hero {
-      padding: 140px 24px 80px;
+      padding: 180px 24px 80px;
       text-align: center;
       background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
       color: white;
@@ -505,7 +507,7 @@
   <!-- ===== NAV ===== -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="logo">Pani<span>ta</span></a>
+      <a href="#" class="logo"><img src="logo.png" alt="Panita"></a>
       <a href="#unete" class="nav-cta">Quiero probarlo</a>
     </div>
   </nav>
