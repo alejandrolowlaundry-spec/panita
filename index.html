@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panita - Tu asistente inteligente por WhatsApp</title>
+  <meta name="description" content="Panita es tu asistente inteligente por WhatsApp para negocios y emprendedores en Venezuela. Atiende clientes, responde preguntas y vende más, todo desde tu celular.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #25D366;
+      --green-dark: #1DA851;
+      --blue: #0A1F3F;
+      --blue-light: #1A3A6A;
+      --yellow: #FFC107;
+      --yellow-light: #FFE082;
+      --gray-light: #F5F7FA;
+      --gray: #6B7280;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--green-dark); }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+      background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      max-width: 750px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--green);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 .highlight {
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: transform 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 17px;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .hero-phone {
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .phone-mockup {
+      background: white;
+      border-radius: 24px;
+      max-width: 340px;
+      margin: 0 auto;
+      padding: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    }
+
+    .phone-header {
+      background: var(--green);
+      border-radius: 12px 12px 0 0;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+    }
+
+    .phone-avatar {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .phone-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .phone-status {
+      font-size: 12px;
+      opacity: 0.85;
+    }
+
+    .phone-chat {
+      background: #ECE5DD;
+      padding: 16px;
+      border-radius: 0 0 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 200px;
+    }
+
+    .chat-bubble {
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+
+    .chat-bubble.bot {
+      background: white;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-bubble.user {
+      background: #DCF8C6;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-time {
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* ===== SECTION SHARED ===== */
+    section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 4px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 50px;
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits { background: var(--gray-light); }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .benefit-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      counter-reset: step;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ===== WHO IT'S FOR ===== */
+    .audience { background: var(--gray-light); }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .audience-card {
+      background: white;
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .audience-card:hover {
+      border-color: var(--green);
+    }
+
+    .audience-icon {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    .audience-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .audience-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
+      text-align: center;
+      color: white;
+    }
+
+    .cta .section-title { color: white; }
+    .cta .section-subtitle { color: rgba(255,255,255,0.8); margin-left: auto; margin-right: auto; }
+
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 16px 20px;
+      border-radius: 30px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .cta-input::placeholder { color: rgba(255,255,255,0.5); }
+    .cta-input:focus { border-color: var(--green); }
+
+    .cta-btn {
+      background: var(--green);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .cta-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0D1B2A;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 14px;
+    }
+
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .btn-primary, .btn-secondary { padding: 14px 28px; font-size: 15px; }
+      .section-title { font-size: 1.7rem; }
+      section { padding: 60px 20px; }
+      .phone-mockup { max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Pani<span>ta</span></a>
+      <a href="#unete" class="nav-cta">Quiero probarlo</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Hecho para Venezuela</div>
+      <h1>Tu negocio atendido <span class="highlight">24/7</span> por WhatsApp</h1>
+      <p>Panita es un asistente inteligente que responde a tus clientes, toma pedidos y resuelve preguntas por WhatsApp. Funciona con cualquier celular y red venezolana.</p>
+      <div class="hero-buttons">
+        <a href="#unete" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quiero probarlo
+        </a>
+        <a href="#como-funciona" class="btn-secondary">Como funciona</a>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="hero-phone">
+        <div class="phone-mockup">
+          <div class="phone-header">
+            <div class="phone-avatar">P</div>
+            <div>
+              <div class="phone-name">Panita</div>
+              <div class="phone-status">en linea</div>
+            </div>
+          </div>
+          <div class="phone-chat">
+            <div class="chat-bubble bot">Hola! Soy Panita, el asistente de tu negocio. En que te puedo ayudar?</div>
+            <div class="chat-bubble user">Quiero saber el precio de la torta de chocolate</div>
+            <div class="chat-bubble bot">La torta de chocolate cuesta $8. Tenemos disponible para entrega hoy! Quieres que te aparte una?</div>
+            <div class="chat-bubble user">Si, dale!</div>
+            <div class="chat-bubble bot">Listo! Pedido anotado. Te confirmo en un momento. Gracias por tu compra!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="benefits">
+    <div class="section-inner">
+      <div class="section-label">Beneficios</div>
+      <h2 class="section-title">Por que Panita?</h2>
+      <p class="section-subtitle">Tu asistente que trabaja por ti, sin complicaciones.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128172;</div>
+          <h3>Responde automaticamente</h3>
+          <p>Panita contesta las preguntas de tus clientes al instante, a cualquier hora. No pierdes mas ventas por no contestar a tiempo.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128241;</div>
+          <h3>Funciona con tu celular</h3>
+          <p>Solo necesitas WhatsApp y tu numero venezolano (+58). Funciona con Movistar, Digitel y Movilnet. Sin apps extra.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128176;</div>
+          <h3>Cobra sin problemas</h3>
+          <p>Panita entiende de Pago Movil, Zelle, efectivo en dolares y bolivares. Le explica a tus clientes como pagarte.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128640;</div>
+          <h3>Facil y economico</h3>
+          <p>Lo configuras en minutos. No necesitas computadora, ni pagina web, ni saber de tecnologia. Y cuesta menos que un cafe al dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="como-funciona">
+    <div class="section-inner">
+      <div class="section-label">Como funciona</div>
+      <h2 class="section-title">3 pasos y listo</h2>
+      <p class="section-subtitle">Tan facil como mandar un WhatsApp.</p>
+
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Registra tu negocio</h3>
+          <p>Nos dices el nombre de tu negocio, que vendes, tus precios y como cobras. Nosotros nos encargamos del resto.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Conecta tu numero</h3>
+          <p>Usamos tu numero venezolano de WhatsApp. Tus clientes escriben al mismo numero de siempre.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Panita atiende por ti</h3>
+          <p>Tu asistente responde preguntas, muestra precios, toma pedidos y le dice a tus clientes como pagarte. Tu solo preparas el pedido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO IT'S FOR ===== -->
+  <section class="audience">
+    <div class="section-inner">
+      <div class="section-label">Para quien es</div>
+      <h2 class="section-title">Si vendes algo, Panita es para ti</h2>
+      <p class="section-subtitle">Hecho para el dia a dia del venezolano que trabaja duro.</p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon">&#127850;</div>
+          <h3>Panaderias y dulcerias</h3>
+          <p>Muestra tu catalogo, toma pedidos de tortas y atiende sin parar.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128085;</div>
+          <h3>Tiendas de ropa</h3>
+          <p>Responde tallas, precios y disponibilidad sin escribir mil mensajes.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128295;</div>
+          <h3>Servicios tecnicos</h3>
+          <p>Agenda citas, da presupuestos y contesta a tus clientes 24/7.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#127828;</div>
+          <h3>Comida y delivery</h3>
+          <p>Menu, precios, pedidos y metodos de pago. Todo automatico.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128137;</div>
+          <h3>Salud y belleza</h3>
+          <p>Reserva citas, muestra servicios y responde preguntas frecuentes.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128218;</div>
+          <h3>Cualquier emprendimiento</h3>
+          <p>Si vendes por WhatsApp, Panita te ayuda a vender mas y mejor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="unete">
+    <div class="section-inner">
+      <div class="section-label">Unete</div>
+      <h2 class="section-title">Prueba Panita gratis</h2>
+      <p class="section-subtitle">Deja tu numero o correo y te contactamos para activar tu asistente. Sin compromiso.</p>
+
+      <form class="cta-form" id="waitlist-form">
+        <input type="text" class="cta-input" id="waitlist-input" placeholder="Tu numero o correo..." required>
+        <button type="submit" class="cta-btn">Quiero probarlo</button>
+      </form>
+      <p class="cta-note">Sin tarjeta. Sin compromiso. Te escribimos por WhatsApp.</p>
+      <p class="cta-note" id="form-success" style="display:none; color: var(--green); font-weight: 600; font-size: 16px; margin-top: 20px;">Listo! Te contactamos pronto. Gracias!</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Panita &copy; 2026 &mdash; Hecho con cari&ntilde;o para Venezuela</p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Waitlist form (stores locally for now, ready to connect to backend later)
+    const form = document.getElementById('waitlist-form');
+    const input = document.getElementById('waitlist-input');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = input.value.trim();
+      if (!value) return;
+
+      // Store locally (ready to POST to backend later)
+      const waitlist = JSON.parse(localStorage.getItem('panita_waitlist') || '[]');
+      waitlist.push({ contact: value, date: new Date().toISOString() });
+      localStorage.setItem('panita_waitlist', JSON.stringify(waitlist));
+
+      // Show success
+      input.value = '';
+      form.style.display = 'none';
+      success.style.display = 'block';
+
+      console.log('Waitlist signup:', value);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
