@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>Política de Privacidad - Panita</title>
+  <meta name="description" content="Política de privacidad de Panita. Conoce cómo manejamos tu información personal y la de tus clientes.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #25D366;
+      --green-dark: #1DA851;
+      --blue: #0A1F3F;
+      --blue-light: #1A3A6A;
+      --yellow: #FFC107;
+      --gray-light: #F5F7FA;
+      --gray: #6B7280;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      padding: 10px 0;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 120px; width: auto; }
+    .nav-cta {
+      background: var(--green);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-dark); }
+
+    /* HERO */
+    .hero {
+      padding: 180px 24px 80px;
+      text-align: center;
+      background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-inner { max-width: 750px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--green);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    .last-updated {
+      display: inline-block;
+      background: var(--gray-light);
+      color: var(--gray);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 40px;
+    }
+
+    .policy-section {
+      margin-bottom: 44px;
+    }
+
+    .policy-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .policy-section h2 .num {
+      background: var(--green);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .policy-section p {
+      color: #374151;
+      margin-bottom: 12px;
+      font-size: 0.97rem;
+      line-height: 1.75;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      margin: 12px 0;
+      padding: 0;
+    }
+
+    .policy-section ul li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: #374151;
+      font-size: 0.97rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .policy-section ul li:last-child { border-bottom: none; }
+
+    .policy-section ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      background: rgba(37, 211, 102, 0.08);
+      border-left: 4px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #1a1a1a;
+      font-size: 0.95rem;
+    }
+
+    .contact-box {
+      background: var(--blue);
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .contact-box h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .contact-box a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .contact-box a:hover { background: var(--green-dark); }
+
+    /* FOOTER */
+    footer {
+      background: #0D1B2A;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 14px;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 2rem; }
+      .content { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo"><img src="logo.png" alt="Panita"></a>
+      <a href="/#unete" class="nav-cta">Quiero probarlo</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Legal</div>
+      <h1>Política de Privacidad</h1>
+      <p>Tu privacidad y la de tus clientes es nuestra prioridad.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="last-updated">Última actualización: marzo 2026</div>
+
+    <div class="policy-section">
+      <p>En <strong>Panita</strong> nos comprometemos a proteger tu información personal y la de tus clientes. Esta política explica qué datos recopilamos, cómo los usamos y qué derechos tienes. Al usar Panita, aceptas las prácticas descritas aquí.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="policy-section">
+      <h2><span class="num">1</span> ¿Quiénes somos?</h2>
+      <p>Panita es un asistente de inteligencia artificial diseñado para negocios y emprendedores en Venezuela. Automatizamos la atención al cliente a través de WhatsApp, ayudándote a responder preguntas, tomar pedidos y explicar métodos de pago.</p>
+      <p><strong>Responsable del tratamiento de datos:</strong> Panita · contacto: <a href="mailto:hola@panita.pro" style="color:var(--green)">hola@panita.pro</a></p>
+    </div>
+
+    <!-- 2 -->
+    <div class="policy-section">
+      <h2><span class="num">2</span> Información que recopilamos</h2>
+      <p>Recopilamos únicamente la información necesaria para prestarte el servicio:</p>
+      <ul>
+        <li>Número de teléfono o correo electrónico que nos proporcionas al registrarte</li>
+        <li>Nombre de tu negocio, productos, precios y métodos de pago que configuras</li>
+        <li>Mensajes de WhatsApp entre tus clientes y Panita (para procesar respuestas)</li>
+        <li>Información de uso del servicio (horarios de actividad, volumen de mensajes)</li>
+      </ul>
+      <div class="highlight-box">
+        <p>⚠️ <strong>No recopilamos</strong> datos bancarios, contraseñas, ni información sensible de tus clientes. Los mensajes se procesan para generar respuestas y no se venden a terceros.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="policy-section">
+      <h2><span class="num">3</span> ¿Cómo usamos tu información?</h2>
+      <p>Usamos los datos recopilados para:</p>
+      <ul>
+        <li>Configurar y personalizar tu asistente Panita con la información de tu negocio</li>
+        <li>Procesar y responder los mensajes de tus clientes en tiempo real</li>
+        <li>Mejorar la precisión y calidad de las respuestas del asistente</li>
+        <li>Enviarte notificaciones sobre el servicio (actualizaciones, mantenimiento)</li>
+        <li>Ofrecerte soporte técnico cuando lo necesites</li>
+      </ul>
+    </div>
+
+    <!-- 4 -->
+    <div class="policy-section">
+      <h2><span class="num">4</span> WhatsApp y datos de tus clientes</h2>
+      <p>Panita opera a través de WhatsApp. Al usar nuestro servicio, debes informar a tus clientes que sus mensajes son procesados por un asistente inteligente.</p>
+      <ul>
+        <li>Los mensajes de tus clientes se procesan para generar respuestas automáticas</li>
+        <li>No almacenamos conversaciones completas de forma permanente</li>
+        <li>No compartimos datos de tus clientes con terceros</li>
+        <li>Los datos se tratan conforme a las políticas de WhatsApp Business API</li>
+      </ul>
+      <div class="highlight-box">
+        <p>📱 Te recomendamos indicarles a tus clientes en tu perfil de WhatsApp que usas un asistente automatizado para la atención.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="policy-section">
+      <h2><span class="num">5</span> Compartir información con terceros</h2>
+      <p><strong>No vendemos ni alquilamos tu información personal a nadie.</strong> Solo compartimos datos en los siguientes casos limitados:</p>
+      <ul>
+        <li><strong>Proveedores de servicio:</strong> empresas que nos ayudan a operar (hosting, inteligencia artificial), bajo acuerdos de confidencialidad</li>
+        <li><strong>Obligaciones legales:</strong> si la ley venezolana o una autoridad competente lo requiere</li>
+        <li><strong>Con tu consentimiento:</strong> en cualquier otro caso, solo con tu autorización explícita</li>
+      </ul>
+    </div>
+
+    <!-- 6 -->
+    <div class="policy-section">
+      <h2><span class="num">6</span> Seguridad de tus datos</h2>
+      <p>Tomamos medidas para proteger tu información:</p>
+      <ul>
+        <li>Comunicaciones cifradas (HTTPS / TLS)</li>
+        <li>Acceso restringido a datos únicamente para personal autorizado</li>
+        <li>Revisiones periódicas de seguridad</li>
+        <li>No almacenamos contraseñas en texto plano</li>
+      </ul>
+      <p>Sin embargo, ningún sistema es 100% seguro. Si detectas alguna vulnerabilidad, por favor escríbenos a <a href="mailto:hola@panita.pro" style="color:var(--green)">hola@panita.pro</a>.</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="policy-section">
+      <h2><span class="num">7</span> Tus derechos</h2>
+      <p>Tienes derecho a:</p>
+      <ul>
+        <li><strong>Acceder</strong> a los datos personales que tenemos sobre ti</li>
+        <li><strong>Corregir</strong> información incorrecta o desactualizada</li>
+        <li><strong>Eliminar</strong> tu cuenta y datos asociados en cualquier momento</li>
+        <li><strong>Portabilidad:</strong> recibir tus datos en formato legible</li>
+        <li><strong>Oponerte</strong> al tratamiento de tus datos para fines específicos</li>
+      </ul>
+      <p>Para ejercer cualquiera de estos derechos, escríbenos a <a href="mailto:hola@panita.pro" style="color:var(--green)">hola@panita.pro</a> y respondemos en máximo 5 días hábiles.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="policy-section">
+      <h2><span class="num">8</span> Retención de datos</h2>
+      <p>Conservamos tu información mientras tengas una cuenta activa con nosotros. Si cancelas el servicio:</p>
+      <ul>
+        <li>Eliminamos tu información de negocio en un plazo de 30 días</li>
+        <li>Los registros de mensajes se eliminan en un plazo de 90 días</li>
+        <li>Podemos conservar datos anonimizados para mejorar el servicio</li>
+      </ul>
+    </div>
+
+    <!-- 9 -->
+    <div class="policy-section">
+      <h2><span class="num">9</span> Cookies y tecnologías de seguimiento</h2>
+      <p>Nuestro sitio web <strong>panita.pro</strong> usa únicamente cookies técnicas esenciales para el funcionamiento básico (como recordar tu sesión). No usamos cookies de publicidad ni rastreadores de terceros.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="policy-section">
+      <h2><span class="num">10</span> Cambios a esta política</h2>
+      <p>Podemos actualizar esta política ocasionalmente. Cuando hagamos cambios importantes, te avisaremos por WhatsApp o correo electrónico con al menos 7 días de anticipación. La fecha de la última actualización siempre estará visible al inicio de esta página.</p>
+    </div>
+
+    <!-- Contact box -->
+    <div class="contact-box">
+      <h3>¿Tienes preguntas?</h3>
+      <p>Estamos aquí para ayudarte. Escríbenos y te respondemos rápido.</p>
+      <a href="https://wa.me/message/panita" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Panita &copy; 2026 &mdash; Hecho con cari&ntilde;o para Venezuela &nbsp;|&nbsp;
+      <a href="/privacy.html">Privacidad</a> &nbsp;|&nbsp;
+      <a href="/terms.html">Términos</a>
+    </p>
+  </footer>
+
+</body>
+</html>

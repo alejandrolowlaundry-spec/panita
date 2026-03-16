@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>Términos de Servicio - Panita</title>
+  <meta name="description" content="Términos y condiciones de uso de Panita, el asistente inteligente de WhatsApp para negocios venezolanos.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #25D366;
+      --green-dark: #1DA851;
+      --blue: #0A1F3F;
+      --blue-light: #1A3A6A;
+      --gray-light: #F5F7FA;
+      --gray: #6B7280;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      padding: 10px 0;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 120px; width: auto; }
+    .nav-cta {
+      background: var(--green);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-dark); }
+
+    .hero {
+      padding: 180px 24px 80px;
+      text-align: center;
+      background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-inner { max-width: 750px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--green);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.8); }
+
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    .last-updated {
+      display: inline-block;
+      background: var(--gray-light);
+      color: var(--gray);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 40px;
+    }
+
+    .policy-section { margin-bottom: 44px; }
+
+    .policy-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .policy-section h2 .num {
+      background: var(--blue);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .policy-section p {
+      color: #374151;
+      margin-bottom: 12px;
+      font-size: 0.97rem;
+      line-height: 1.75;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      margin: 12px 0;
+      padding: 0;
+    }
+
+    .policy-section ul li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: #374151;
+      font-size: 0.97rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .policy-section ul li:last-child { border-bottom: none; }
+
+    .policy-section ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      background: #fff8e1;
+      border-left: 4px solid #FFC107;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-box p { margin: 0; color: #1a1a1a; font-size: 0.95rem; }
+
+    .contact-box {
+      background: var(--blue);
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .contact-box h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+    .contact-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem; }
+    .contact-box a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+    .contact-box a:hover { background: var(--green-dark); }
+
+    footer {
+      background: #0D1B2A;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 14px;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 2rem; }
+      .content { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo"><img src="logo.png" alt="Panita"></a>
+      <a href="/#unete" class="nav-cta">Quiero probarlo</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Legal</div>
+      <h1>Términos de Servicio</h1>
+      <p>Las reglas del juego — claras y en español sencillo.</p>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <div class="last-updated">Última actualización: marzo 2026</div>
+
+    <div class="policy-section">
+      <p>Bienvenido a <strong>Panita</strong>. Al usar nuestro servicio, aceptas estos términos. Los escribimos en español claro para que los entiendas sin ser abogado. Si tienes dudas, escríbenos.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="policy-section">
+      <h2><span class="num">1</span> ¿Qué es Panita?</h2>
+      <p>Panita es un asistente de inteligencia artificial que automatiza la atención al cliente de tu negocio a través de WhatsApp. Responde preguntas, toma pedidos y explica métodos de pago según la información que tú nos proporcionas.</p>
+      <p>Panita es una herramienta de apoyo — <strong>tú sigues siendo responsable</strong> de tu negocio, tus productos, tus precios y tu relación con tus clientes.</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="policy-section">
+      <h2><span class="num">2</span> Requisitos para usar el servicio</h2>
+      <p>Para usar Panita debes:</p>
+      <ul>
+        <li>Tener 18 años o más</li>
+        <li>Tener un número de WhatsApp activo en Venezuela (+58)</li>
+        <li>Usar el servicio para actividades comerciales legales</li>
+        <li>Proporcionar información veraz sobre tu negocio</li>
+        <li>Aceptar los términos de servicio de WhatsApp y Meta</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="policy-section">
+      <h2><span class="num">3</span> Tu cuenta y responsabilidades</h2>
+      <p>Al registrarte en Panita, eres responsable de:</p>
+      <ul>
+        <li>Mantener actualizada la información de tu negocio (precios, disponibilidad, productos)</li>
+        <li>La exactitud de las respuestas que Panita da a tus clientes</li>
+        <li>No usar Panita para enviar spam, mensajes engañosos o contenido ilegal</li>
+        <li>Informar a tus clientes que están interactuando con un asistente automático</li>
+        <li>Cumplir con las leyes venezolanas aplicables a tu negocio</li>
+      </ul>
+      <div class="highlight-box">
+        <p>⚠️ <strong>Importante:</strong> Si la información que nos das es incorrecta, Panita puede dar respuestas equivocadas a tus clientes. Tú eres responsable de mantener todo actualizado.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="policy-section">
+      <h2><span class="num">4</span> Uso aceptable del servicio</h2>
+      <p>Está <strong>permitido</strong> usar Panita para:</p>
+      <ul>
+        <li>Atención al cliente de negocios legítimos</li>
+        <li>Toma de pedidos y gestión de consultas</li>
+        <li>Información sobre precios, disponibilidad y métodos de pago</li>
+        <li>Agenda de citas y reservaciones</li>
+      </ul>
+      <p style="margin-top:16px">Está <strong>prohibido</strong> usar Panita para:</p>
+      <ul>
+        <li>Enviar mensajes masivos no solicitados (spam)</li>
+        <li>Actividades ilegales, fraude o estafas</li>
+        <li>Venta de productos prohibidos o ilegales</li>
+        <li>Acosar o engañar a los usuarios</li>
+        <li>Suplantar la identidad de otras personas o negocios</li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="policy-section">
+      <h2><span class="num">5</span> Pagos y suscripción</h2>
+      <p>Panita ofrece un período de prueba gratuito. Una vez finalizado:</p>
+      <ul>
+        <li>El servicio se cobra según el plan que elijas</li>
+        <li>Los pagos se realizan por los métodos disponibles (Pago Móvil, Zelle u otros)</li>
+        <li>Puedes cancelar tu suscripción en cualquier momento</li>
+        <li>No hacemos reembolsos por períodos ya utilizados</li>
+        <li>Te avisamos con anticipación si cambiamos los precios</li>
+      </ul>
+    </div>
+
+    <!-- 6 -->
+    <div class="policy-section">
+      <h2><span class="num">6</span> Disponibilidad del servicio</h2>
+      <p>Hacemos nuestro mejor esfuerzo para que Panita esté disponible las 24 horas, pero no garantizamos disponibilidad continua. Puede haber interrupciones por:</p>
+      <ul>
+        <li>Mantenimiento programado (te avisamos con anticipación)</li>
+        <li>Fallas técnicas imprevistas</li>
+        <li>Interrupciones del servicio de WhatsApp o Meta</li>
+        <li>Fallas de conectividad en Venezuela</li>
+      </ul>
+      <div class="highlight-box">
+        <p>💡 Si Panita no está disponible temporalmente, te notificamos por WhatsApp o correo lo antes posible.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="policy-section">
+      <h2><span class="num">7</span> Propiedad intelectual</h2>
+      <p>El nombre <strong>Panita</strong>, el logo y el software son propiedad de Panita. No puedes:</p>
+      <ul>
+        <li>Copiar o reproducir nuestra marca o software</li>
+        <li>Crear servicios similares basados en nuestro código</li>
+        <li>Usar nuestro nombre o logo sin autorización</li>
+      </ul>
+      <p>La información de tu negocio (nombre, productos, precios) sigue siendo tuya en todo momento.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="policy-section">
+      <h2><span class="num">8</span> Limitación de responsabilidad</h2>
+      <p>Panita es una herramienta de apoyo. <strong>No somos responsables por:</strong></p>
+      <ul>
+        <li>Pérdidas económicas derivadas del uso del servicio</li>
+        <li>Errores en las respuestas automáticas si la información suministrada es incorrecta</li>
+        <li>Conflictos entre tú y tus clientes</li>
+        <li>Interrupciones del servicio de WhatsApp fuera de nuestro control</li>
+        <li>Decisiones de negocio tomadas con base en datos del asistente</li>
+      </ul>
+    </div>
+
+    <!-- 9 -->
+    <div class="policy-section">
+      <h2><span class="num">9</span> Cancelación y terminación</h2>
+      <p>Puedes cancelar tu cuenta en cualquier momento escribiéndonos. Nosotros podemos suspender o terminar tu acceso si:</p>
+      <ul>
+        <li>Violas estos términos de servicio</li>
+        <li>Usas el servicio para actividades ilegales o fraudulentas</li>
+        <li>No pagas el servicio después del período de gracia</li>
+      </ul>
+      <p>Al cancelar, eliminamos tu información según lo descrito en nuestra <a href="/privacy.html" style="color:var(--green)">Política de Privacidad</a>.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="policy-section">
+      <h2><span class="num">10</span> Cambios a estos términos</h2>
+      <p>Podemos actualizar estos términos cuando sea necesario. Si hacemos cambios importantes, te avisamos por WhatsApp o correo con al menos <strong>7 días de anticipación</strong>. Si continúas usando el servicio después del aviso, se entiende que aceptas los nuevos términos.</p>
+    </div>
+
+    <!-- 11 -->
+    <div class="policy-section">
+      <h2><span class="num">11</span> Ley aplicable</h2>
+      <p>Estos términos se rigen por las leyes de la República Bolivariana de Venezuela. Cualquier disputa se resolverá de manera amistosa en primer lugar. Si no es posible, se resolverá conforme a la legislación venezolana vigente.</p>
+    </div>
+
+    <div class="contact-box">
+      <h3>¿Tienes preguntas sobre los términos?</h3>
+      <p>Escríbenos y te explicamos lo que necesites en lenguaje simple.</p>
+      <a href="mailto:hola@panita.pro">
+        ✉️ hola@panita.pro
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Panita &copy; 2026 &mdash; Hecho con cari&ntilde;o para Venezuela &nbsp;|&nbsp;
+      <a href="/privacy.html">Privacidad</a> &nbsp;|&nbsp;
+      <a href="/terms.html">Términos</a>
+    </p>
+  </footer>
+
+</body>
+</html>
